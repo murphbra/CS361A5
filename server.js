@@ -149,6 +149,11 @@ function delete_boat(id) {
 /* ------------- End Model Functions ------------- */
 
 /* ------------- Begin Controller Functions ------------- */
+router.get('/', function(req, res){
+    res.render('index'); 
+})
+
+
 
 router.get('/boats', function (req, res) {
     const boats = get_boats(req).then((boats) => {
