@@ -39,6 +39,15 @@ function post_event(title, description, date, invites) {
     return datastore.save({"key": key, "data": new_event}); 
 }
 
+function get_events() {
+    const q = datastore.createQuery(EVENT);
+    return datastore.runQuery(q).then((entities) => {
+        // Use Array.map to call the function fromDatastore. This function
+        // adds id attribute to every element in the array at element 0 of
+        // the variable entities
+        return entities[0].map(fromDatastore);
+    });
+}
 
 function post_boat(name, type, length) {
     var key = datastore.key(BOAT);
