@@ -59,7 +59,7 @@ router.get('/events', function(req, res){
     var context = {}; 
     get_events().then((events) =>{
         context.events = events; 
-        res.render("/events", context);
+        res.render("events", context);
     }); 
 }); 
 
