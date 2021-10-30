@@ -58,8 +58,7 @@ router.get('/', function(req, res){
 
 router.get('/events', function(req, res){
     var context = {}; 
-    get_events(context).then((context) =>{
-        context.results = JSON.stringify(context.events); 
+    get_events(context).then((context) =>{ 
         res.render("events", context);
     }); 
 }); 
