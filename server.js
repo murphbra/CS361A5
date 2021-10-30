@@ -43,11 +43,7 @@ function get_events(context) {
         // Use Array.map to call the function fromDatastore. This function
         // adds id attribute to every element in the array at element 0 of
         // the variable entities
-        var results = entities[0].map(fromDatastore); 
-        for(item in results)
-        {
-            context.events.push(item); 
-        }
+        context.events = entities[0].map(fromDatastore); 
         return context; 
     });
 }
@@ -62,7 +58,6 @@ router.get('/', function(req, res){
 
 router.get('/events', function(req, res){
     var context = {}; 
-    context.events = []; 
     get_events(context).then((context) =>{
         res.render("events", context);
     }); 
