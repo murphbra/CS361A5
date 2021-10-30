@@ -16,6 +16,21 @@
         <a href="https://cs361a5.wl.r.appspot.com/events">View all saved events</a>
     </div>
 
+    <table style="border:solid">
+        <caption>Saved Events</caption>
+        <thead>
+            <th>title:</th>
+        </thead>
 
+        <tbody>
+
+            {{#each data}}
+            <tr>
+                <td>{{this.title}}</td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
 </body>
 </html>

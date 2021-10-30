@@ -37,13 +37,13 @@ function post_event(title, description, date, invites) {
     return datastore.save({"key": key, "data": new_event}); 
 }
 
-function get_events() {
+function get_events(context) {
     const q = datastore.createQuery(EVENT);
     return datastore.runQuery(q).then((entities) => {
         // Use Array.map to call the function fromDatastore. This function
         // adds id attribute to every element in the array at element 0 of
         // the variable entities
-        return entities[0].map(fromDatastore);
+        context.events = entities[0].map(fromDatastore);
     });
 }
 
@@ -56,7 +56,9 @@ router.get('/', function(req, res){
 }); 
 
 router.get('/events', function(req, res){
-    res.render("events"); 
+    var context = {}; 
+    get_events(context); 
+    res.render("events", context); 
 }); 
 
 router.post('/', function(req, res){
