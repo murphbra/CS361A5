@@ -57,8 +57,9 @@ router.get('/', function(req, res){
 
 router.get('/events', function(req, res){
     var context = {}; 
-    get_events(context); 
-    res.render("events", context); 
+    get_events(context).then((context) => {
+        res.render("events", context); 
+    }); 
 }); 
 
 router.post('/', function(req, res){

@@ -19,14 +19,26 @@
     <table style="border:solid">
         <caption>Saved Events</caption>
         <thead>
-            <th>title:</th>
+            <th>Title:</th>
+            <th>Description:</th>
+            <th>Date:</th>
+            <th>Invite List:</th>
         </thead>
 
         <tbody>
 
-            {{#each data}}
+            {{#each events}}
             <tr>
                 <td>{{this.title}}</td>
+            </tr>
+            <tr>
+                <td>{{this.description}}</td>
+            </tr>
+            <tr>
+                <td>{{this.date}}</td>
+            </tr>
+            <tr>
+                <td>{{this.invites}}</td>
             </tr>
             {{/each}}
 
