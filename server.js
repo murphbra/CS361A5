@@ -9,11 +9,12 @@ const {Datastore} = require('@google-cloud/datastore');
 
 
 var exphbs = require('express-handlebars'); 
+/*
 app.engine('.hbs', exphbs({                     
     extname: ".hbs"
 }));
 app.set('view engine', '.hbs'); 
-
+*/
 
 const bodyParser = require('body-parser');
 const datastore = new Datastore();
