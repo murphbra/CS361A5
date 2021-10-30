@@ -6,16 +6,6 @@ const express = require('express');
 const app = express();
 
 const {Datastore} = require('@google-cloud/datastore');
-
-
-var exphbs = require('express-handlebars'); 
-/*
-app.engine('.hbs', exphbs({                     
-    extname: ".hbs"
-}));
-app.set('view engine', '.hbs'); 
-*/
-
 const bodyParser = require('body-parser');
 const datastore = new Datastore();
 const BOAT = "Boat"; 
@@ -27,8 +17,13 @@ function fromDatastore(item) {
     item.id = item[Datastore.KEY].id;
     return item;
 }
+app.set('trust proxy', true);
 
-app.set('trust proxy', true); 
+var exphbs = require('express-handlebars');
+app.engine('.hbs', exphbs({                     
+    extname: ".hbs"
+}));
+app.set('view engine', '.hbs'); 
 /* ------------- Begin Lodging Model Functions ------------- */
 
 /**
@@ -156,7 +151,7 @@ function delete_boat(id) {
 /* ------------- Begin Controller Functions ------------- */
 
 router.get('/index', function(req, res){
-    res.send('hello world'); 
+    res.render("index"); 
 }); 
 
 
