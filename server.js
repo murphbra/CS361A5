@@ -165,8 +165,13 @@ router.get('/', function(req, res){
     res.render("index"); 
 }); 
 
+router.get('/CreateEvents', function(req, res){
+    res.render("ViewEvents"); 
+}); 
+
 router.post('/', function(req, res){
     post_event(req.body.title, req.body.description, req.body.date, req.body.invites); 
+    res.redirect('/'); 
 }); 
 
 router.get('/boats', function (req, res) {
