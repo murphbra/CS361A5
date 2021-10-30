@@ -155,7 +155,7 @@ function delete_boat(id) {
 /* ------------- Begin Controller Functions ------------- */
 
 router.get('/index', function(req, res){
-    res.send('hello world'); 
+    res.send('home.html'); 
 }); 
 
 
