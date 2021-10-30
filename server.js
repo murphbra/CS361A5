@@ -7,11 +7,13 @@ const app = express();
 
 const {Datastore} = require('@google-cloud/datastore');
 
+/*
 var exphbs = require('express-handlebars');
 app.engine('.hbs', exphbs({                     
     extname: ".hbs"
 }));
 app.set('view engine', '.hbs'); 
+*/
 
 const bodyParser = require('body-parser');
 const datastore = new Datastore();
@@ -151,10 +153,11 @@ function delete_boat(id) {
 /* ------------- End Model Functions ------------- */
 
 /* ------------- Begin Controller Functions ------------- */
+/*
 router.get('/index', function(req, res){
     res.send('hello world'); 
 }); 
-
+*/
 
 router.get('/boats', function (req, res) {
     const boats = get_boats(req).then((boats) => {
