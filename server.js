@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const datastore = new Datastore();
 const BOAT = "Boat"; 
 const LOAD = "Load"; 
+const EVENT = "Event"; 
 const router = express.Router();
 app.use(bodyParser.json());
 const PORT = process.env.PORT || 8080;
@@ -31,6 +32,14 @@ app.set('view engine', '.hbs');
 /**
  * 
  */
+
+function post_event(title, description, date, invites) {
+    var key = datastore.key(EVENT);
+    const new_event = {"title": title, "description": description, "date": date, "invites": invites}; 
+    return datastore.save({"key": key, "data": new_event}); 
+}
+
+
 function post_boat(name, type, length) {
     var key = datastore.key(BOAT);
     var loads = []; 
@@ -156,6 +165,9 @@ router.get('/', function(req, res){
     res.render("index"); 
 }); 
 
+router.post('/', function(req, res){
+    post_event(req.body.title, req.body.description, req.body.date, req.body.invites); 
+}); 
 
 router.get('/boats', function (req, res) {
     const boats = get_boats(req).then((boats) => {
