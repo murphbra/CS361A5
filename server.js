@@ -165,8 +165,8 @@ router.get('/', function(req, res){
     res.render("index"); 
 }); 
 
-router.get('/ViewEvents', function(req, res){
-    res.render("ViewEvents"); 
+router.get('/events', function(req, res){
+    res.render("events"); 
 }); 
 
 router.post('/', function(req, res){
