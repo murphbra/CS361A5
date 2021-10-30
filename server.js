@@ -20,10 +20,8 @@ function fromDatastore(item) {
 app.set('trust proxy', true);
 
 var exphbs = require('express-handlebars');
-app.engine('.hbs', exphbs({                     
-    extname: ".hbs"
-}));
-app.set('view engine', '.hbs'); 
+app.set('view engine', 'handlebars'); 
+
 /* ------------- Begin Lodging Model Functions ------------- */
 
 /**
