@@ -12,7 +12,7 @@ const BOAT = "Boat";
 const LOAD = "Load"; 
 const router = express.Router();
 app.use(bodyParser.json());
-
+const PORT = process.env.PORT || 8080;
 function fromDatastore(item) {
     item.id = item[Datastore.KEY].id;
     return item;
@@ -20,8 +20,11 @@ function fromDatastore(item) {
 app.set('trust proxy', true);
 
 var exphbs = require('express-handlebars');
-app.engine('handlebars', exphbs); 
-app.set('view engine', 'handlebars'); 
+app.engine('.hbs', exphbs({                     
+    extname: ".hbs"
+}));
+app.set('view engine', '.hbs'); 
+
 
 /* ------------- Begin Lodging Model Functions ------------- */
 
@@ -423,7 +426,7 @@ router.delete('/boats/:boat_id', function(req, res) {
 app.use('/', router);
 
 // Listen to the App Engine-specified port, or 8080 otherwise
-const PORT = process.env.PORT || 8080;
+//const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`);
 });
