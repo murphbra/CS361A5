@@ -43,10 +43,8 @@ function get_events(context) {
         // Use Array.map to call the function fromDatastore. This function
         // adds id attribute to every element in the array at element 0 of
         // the variable entities
-        context.events = entities[0].map(fromDatastore); 
-        for(item in context.events){
-            context.results = Object.keys(context.events); 
-        }
+        results = entities[0].map(fromDatastore); 
+        context.events = results[0]; 
         return context; 
     });
 }
