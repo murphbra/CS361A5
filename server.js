@@ -1,6 +1,6 @@
 //Author: Brayden Murphy
-//CS 493 Assignment 4
-// Adapted from example code provided in course materials for CS 493 
+//CS 361 Assignment 7 
+
 
 const express = require('express');
 const app = express();
@@ -40,11 +40,8 @@ function post_event(title, description, date, invites) {
 function get_events(context) {
     const q = datastore.createQuery(EVENT);
     return datastore.runQuery(q).then((entities) => {
-        // Use Array.map to call the function fromDatastore. This function
-        // adds id attribute to every element in the array at element 0 of
-        // the variable entities
         results = entities[0].map(fromDatastore); 
-        context.events = results[0]; 
+        context.events = results; 
         return context; 
     });
 }
