@@ -62,6 +62,10 @@ router.get('/events', function(req, res){
 }); 
 
 router.post('/', function(req, res){
+    if(req.body.title === undefined)
+    {
+        res.redirect('/error'); 
+    }
     post_event(req.body.title, req.body.description, req.body.date, req.body.invites); 
     res.redirect('/'); 
 }); 
