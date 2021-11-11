@@ -81,6 +81,14 @@ router.get('/events', function(req, res){
     }); 
 }); 
 
+router.get('/event/:id', function(req, res){
+    var context = {}; 
+    get_event(req.params.id).then( (event) => {
+        context.event = event[0]; 
+        res.render("event", context); 
+    }); 
+}); 
+
 router.post('/', function(req, res){
     if(req.body.title === undefined)
     {
@@ -93,7 +101,8 @@ router.post('/', function(req, res){
 }); 
 
 router.delete('/events/:event_id', function(req, res){
-    delete_event(req.params.event_id).end(); 
+    delete_event(req.params.event_id); 
+    return; 
 })
 /* ------------- End Controller Functions ------------- */
 

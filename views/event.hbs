@@ -1,0 +1,30 @@
+<table style="border:solid">
+        <caption>Event</caption>
+        <thead>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Invite List</th>
+        </thead>
+
+        <tbody>
+
+            {{#each event}}
+            <tr>
+                <td>
+                    {{this.title}}
+                </td>
+                <td>
+                    {{this.description}}
+                </td>
+                <td>
+                    {{this.date}}
+                </td>
+                <td>
+                    {{this.invites}}
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
