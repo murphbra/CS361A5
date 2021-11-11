@@ -31,9 +31,6 @@
             {{#each events}}
             <tr>
                 <td>
-                    {{this.id}}
-                </td>
-                <td>
                     {{this.title}}
                 </td>
                 <td>
@@ -45,6 +42,8 @@
                 <td>
                     {{this.invites}}
                 </td>
+                <td><button action='/events/' + {{this.id}} method='delete'>Delete</button></td>
+                <td><button>View Event Page</button></td>
             </tr>
             {{/each}}
 

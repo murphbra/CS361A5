@@ -47,6 +47,21 @@ function get_events(context) {
     });
 }
 
+function get_event(id) {
+    const key = datastore.key([EVENT, parseInt(id, 10)]);
+    return datastore.get(key).then((entity) => {
+        if (entity[0] === undefined || entity[0] === null) {
+            return entity;
+        } else {
+            return entity.map(fromDatastore);
+        }
+    });
+}
+
+function delete_event(id) {
+    const key = datastore.key([EVENT, parseInt(id, 10)]);
+    return datastore.delete(key); 
+}
 /* ------------- End Model Functions ------------- */
 
 /* ------------- Begin Controller Functions ------------- */
@@ -77,6 +92,10 @@ router.post('/', function(req, res){
     }
 }); 
 
+router.delete('/events/:event_id', function(req, res){
+    delete_event(req.params.event_id); 
+    res.redirect('/events'); 
+})
 /* ------------- End Controller Functions ------------- */
 
 app.use('/', router);
