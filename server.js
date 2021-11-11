@@ -41,7 +41,7 @@ function get_events(context) {
     const q = datastore.createQuery(EVENT);
     return datastore.runQuery(q).then((entities) => {
         results = entities[0].map(fromDatastore); 
-        context.events = results; 
+        context.events = Object.keys(results); 
         return context; 
     });
 }
