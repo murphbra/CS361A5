@@ -54,6 +54,10 @@ router.get('/', function(req, res){
     res.render("index"); 
 }); 
 
+router.get('/error', function(req, res){
+    res.render("error"); 
+})
+
 router.get('/events', function(req, res){
     var context = {};  
     get_events(context).then((context) =>{ 
@@ -66,8 +70,10 @@ router.post('/', function(req, res){
     {
         res.redirect('/error'); 
     }
-    post_event(req.body.title, req.body.description, req.body.date, req.body.invites); 
-    res.redirect('/'); 
+    else {
+        post_event(req.body.title, req.body.description, req.body.date, req.body.invites); 
+        res.redirect('/'); 
+    }
 }); 
 
 /* ------------- End Controller Functions ------------- */
