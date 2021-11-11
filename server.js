@@ -102,7 +102,7 @@ router.post('/', function(req, res){
 
 router.delete('/events/:event_id', function(req, res){
     delete_event(req.params.event_id); 
-    return; 
+    res.redirect('/events'); 
 })
 /* ------------- End Controller Functions ------------- */
 
