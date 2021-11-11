@@ -93,7 +93,7 @@ router.post('/', function(req, res){
 }); 
 
 router.delete('/events/:event_id', function(req, res){
-    delete_event(req.params.event_id); 
+    delete_event(req.params.event_id).end(); 
 })
 /* ------------- End Controller Functions ------------- */
 
