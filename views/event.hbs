@@ -27,24 +27,20 @@
         </thead>
 
         <tbody>
-
-            {{#each data}}
             <tr>
                 <td>
-                    {{this.title}}
+                    {{data.title}}
                 </td>
                 <td>
-                    {{this.description}}
+                    {{data.description}}
                 </td>
                 <td>
-                    {{this.date}}
+                    {{data.date}}
                 </td>
                 <td>
-                    {{this.invites}}
+                    {{data.invites}}
                 </td>
             </tr>
-            {{/each}}
-
         </tbody>
     </table>
 </body>
