@@ -16,6 +16,12 @@
                 }
             }); 
         }
+        function viewEvent(id){
+            $.ajax({
+                url: "https://cs361a5.wl.r.appspot.com/event/" + id,
+                type: 'GET'
+            }); 
+        }
     </script>
 </head>
 <body>
@@ -55,7 +61,7 @@
                     {{this.invites}}
                 </td>
                 <td><button onclick="deleteEvent({{this.id}})">Delete</button></td>
-                <td><button>View Event Page</button></td>
+                <td><button onclick="viewEvent({{this.id}})">View Event Page</button></td>
             </tr>
             {{/each}}
 
