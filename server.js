@@ -21,6 +21,7 @@ var exphbs = require('express-handlebars');
 app.engine('.hbs', exphbs({                     
     extname: ".hbs"
 }));
+app.use(express.json()); 
 app.use(express.urlencoded({extended:true}));
 app.set('view engine', '.hbs'); 
 
