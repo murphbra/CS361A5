@@ -10,7 +10,6 @@ var bodyParser = require('body-parser');
 const datastore = new Datastore();
 const EVENT = "Event"; 
 const router = express.Router();
-app.use(express.json());
 const PORT = process.env.PORT || 8080;
 function fromDatastore(item) {
     item.id = item[Datastore.KEY].id;
@@ -22,6 +21,7 @@ var exphbs = require('express-handlebars');
 app.engine('.hbs', exphbs({                     
     extname: ".hbs"
 }));
+app.use(express.urlencoded({extended:true}));
 app.set('view engine', '.hbs'); 
 
 
