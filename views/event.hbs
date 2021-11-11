@@ -5,6 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        
+
+        var search = {{data.title}}; 
+        $(document).ready(function(search){
+            $.post("https://mycovidupdatermicroservice.herokuapp.com/imgScraper",
+            {
+                "imgSize": "LARGE",
+                "fileType": "jpeg",
+                "imgType": "stock",
+                "num": 1,
+                "q": search
+            },
+            function(data, status){
+                $("#imageHolder").load(data); 
+            }); 
+        }); 
+
+        
+    </script>
 </head>
 <body>
     View Individual Event Page
@@ -17,6 +38,9 @@
     </div>
     <br>
     <br>
+
+    <div id="imageHolder"></div>
+
     <table style="border:solid">
         <caption>Selected Event</caption>
         <thead>
