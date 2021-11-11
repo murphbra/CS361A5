@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 const datastore = new Datastore();
 const EVENT = "Event"; 
 const router = express.Router();
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.json());
 const PORT = process.env.PORT || 8080;
 function fromDatastore(item) {
     item.id = item[Datastore.KEY].id;
