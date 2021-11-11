@@ -5,19 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    function deleteEvent(this){
-        $(this).hide(); 
-        /*
-        $.ajax({
-            url: '/events/' + id,
-            type: 'DELETE',
-            sucess: function(result){
-                window.location.reload(true);
-            }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script> 
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("button").css("border-style", "double"); 
+            }); 
         }); 
-        */
-    };
     </script>
 </head>
 <body>
@@ -56,7 +50,7 @@
                 <td>
                     {{this.invites}}
                 </td>
-                <td><button onclick ="deleteEvent(this)">Delete</button></td>
+                <td><button>Delete</button></td>
                 <td><button>View Event Page</button></td>
             </tr>
             {{/each}}
