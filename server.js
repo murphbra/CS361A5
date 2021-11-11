@@ -81,10 +81,10 @@ router.get('/events', function(req, res){
     }); 
 }); 
 
-router.get('/event/:id', function(req, res){
+router.get('/event/:event_id', function(req, res){
     var context = {}; 
-    get_event(req.params.id).then( (event) => {
-        context.event = event[0]; 
+    get_event(req.params.event_id).then( (event) => {
+        context.data = event[0]; 
         res.render("event", context); 
     }); 
 }); 
