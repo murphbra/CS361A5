@@ -6,11 +6,11 @@ const express = require('express');
 const app = express();
 
 const {Datastore} = require('@google-cloud/datastore');
-const bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 const datastore = new Datastore();
 const EVENT = "Event"; 
 const router = express.Router();
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 const PORT = process.env.PORT || 8080;
 function fromDatastore(item) {
     item.id = item[Datastore.KEY].id;
