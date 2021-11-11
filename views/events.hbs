@@ -7,11 +7,15 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script> 
-        $(document).ready(function(){
-            $("button").click(function(){
-                $("button").css("border-style", "double"); 
+        function deleteEvent(id){
+            $.ajax({
+                url: "https://cs361a5.wl.r.appspot.com/events/" + id,
+                type: 'DELETE', 
+                success: function(result){
+                    window.location.reload(true); 
+                }
             }); 
-        }); 
+        }
     </script>
 </head>
 <body>
@@ -50,7 +54,7 @@
                 <td>
                     {{this.invites}}
                 </td>
-                <td><button>Delete</button></td>
+                <td><button onclick="deleteEvent({{this.id}})">Delete</button></td>
                 <td><button>View Event Page</button></td>
             </tr>
             {{/each}}
