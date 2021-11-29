@@ -19,7 +19,10 @@
                 "q": search
             },
             function(data, status){
-                $("#imageHolder").load(data); 
+                //$("#imageHolder").load(data); 
+                var image = document.createElement('img');
+                image.src = data; 
+                document.getElementById("imageHolder").appendChild(image); 
             }); 
         }); 
     </script>
@@ -36,7 +39,8 @@
     <br>
     <br>
 
-    <div id="imageHolder">Event Image:</div>
+    <div id="imageHolder"></div>
+
 
     <table style="border:solid">
         <caption>Selected Event</caption>
