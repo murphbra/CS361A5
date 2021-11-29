@@ -7,7 +7,7 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        /*
+        
         //var search = {{data.title}}; 
         var search = "dog"; 
         $(document).ready(function(search){
@@ -20,13 +20,15 @@
                 "q": search
             },
             function(data, status){
-                //$("#imageHolder").load(data); 
                 var image = document.createElement('img');
                 image.src = data; 
+                image.width = "300"; 
+                image.alt = ""; 
                 document.getElementById("imageHolder").appendChild(image); 
             }); 
         }); 
-        */
+
+        /*
         $(document).ready(function(){
             var image = document.createElement('img');
             image.src = "/images/spiderman.jpeg";
@@ -34,7 +36,7 @@
             image.alt = ""; 
             document.getElementById("imageHolder").appendChild(image); 
         }); 
-        
+        */ 
     </script>
 </head>
 <body>
