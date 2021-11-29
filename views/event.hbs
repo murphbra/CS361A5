@@ -7,7 +7,8 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        var search = {{data.title}}; 
+        //var search = {{data.title}}; 
+        var search = "dog"; 
         $(document).ready(function(search){
             $.post("https://mycovidupdatermicroservice.herokuapp.com/imgScraper",
             {
@@ -35,7 +36,7 @@
     <br>
     <br>
 
-    <div id="imageHolder"></div>
+    <div id="imageHolder">Event Image:</div>
 
     <table style="border:solid">
         <caption>Selected Event</caption>
