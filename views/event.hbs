@@ -26,13 +26,15 @@
                 document.getElementById("imageHolder").appendChild(image); 
             }); 
         }); 
-        
+        */
         $(document).ready(function(){
             var image = document.createElement('img');
-            image.src = "download.jpeg";
+            image.src = "/images/spiderman.jpeg";
+            image.width = "300"; 
+            image.alt = ""; 
             document.getElementById("imageHolder").appendChild(image); 
         }); 
-        */ 
+        
     </script>
 </head>
 <body>
@@ -46,7 +48,7 @@
     </div>
     <br>
     <br>
-    <img src="/images/spiderman.jpeg" width="300" alt=""> 
+    <div id="imageHolder"></div>
 
     <table style="border:solid">
         <caption>Selected Event</caption>
