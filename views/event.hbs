@@ -7,6 +7,7 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        /*
         //var search = {{data.title}}; 
         var search = "dog"; 
         $(document).ready(function(search){
@@ -24,6 +25,12 @@
                 image.src = data; 
                 document.getElementById("imageHolder").appendChild(image); 
             }); 
+        }); 
+        */
+        $(document).ready(function(){
+            var image = document.createElement('img');
+            image.src = "download.jpeg";
+            document.getElementById("imageHolder").appendChild(image); 
         }); 
     </script>
 </head>
