@@ -5,6 +5,7 @@
 const express = require('express');
 const app = express();
 const path = require('path'); 
+const cors = require('cors'); 
 const {Datastore} = require('@google-cloud/datastore');
 var bodyParser = require('body-parser');
 const datastore = new Datastore();
@@ -24,6 +25,7 @@ app.engine('.hbs', exphbs({
 app.use(express.json()); 
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(cors()); 
 app.set('view engine', '.hbs'); 
 
 
