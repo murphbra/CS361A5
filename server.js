@@ -24,6 +24,7 @@ app.engine('.hbs', exphbs({
 app.use(express.json()); 
 app.use(express.urlencoded({extended:true}));
 app.set('view engine', '.hbs'); 
+app.use(express.static('views/images')); 
 
 
 /* ------------- Begin Lodging Model Functions ------------- */
