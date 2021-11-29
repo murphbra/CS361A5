@@ -7,8 +7,6 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        
-
         var search = {{data.title}}; 
         $(document).ready(function(search){
             $.post("https://mycovidupdatermicroservice.herokuapp.com/imgScraper",
@@ -23,8 +21,6 @@
                 $("#imageHolder").load(data); 
             }); 
         }); 
-
-        
     </script>
 </head>
 <body>
