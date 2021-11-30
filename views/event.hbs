@@ -16,13 +16,13 @@
             num: 1, 
             q: "dogs"
         }; 
-        requestData = JSON.stringify(requestData);  
+        //requestData = JSON.stringify(requestData);  
         $(document).ready(function(requestData){
             $.ajax({
-                url: "https://mycovidupdatermicroservice.herokuapp.com/imgScraper", 
-                contentType: "application/json", 
-                type: "POST", 
-                data: requestData, 
+                "type": "POST", 
+                "url": "https://mycovidupdatermicroservice.herokuapp.com/imgScraper", 
+                "contentType": "application/json", 
+                "data": requestData, 
                 success: function(data, status){
                     var image = document.createElement('img');
                     image.src = data[0]; 
