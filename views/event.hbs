@@ -9,15 +9,15 @@
     <script>
         $(document).ready(function(){
             $.ajax({
-                "type": "POST", 
-                "url": "https://mycovidupdatermicroservice.herokuapp.com/imgScraper", 
-                "contentType": "application/json", 
-                "data": {
-                    "imgSize": "LARGE", 
-                    "fileType": "jpeg",  
-                    "imgType": "stock", 
-                    "num": 1, 
-                    "q": "dogs"
+                type: "POST", 
+                url: "https://mycovidupdatermicroservice.herokuapp.com/imgScraper", 
+                contentType: "application/json", 
+                data: {
+                    imgSize: "LARGE", 
+                    fileType: "jpeg",  
+                    imgType: "stock", 
+                    num: 1, 
+                    q: "dogs"
                 }, 
                 success: function(data, status){
                     var image = document.createElement('img');
