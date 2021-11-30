@@ -7,22 +7,18 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        //var search = {{data.title}}; 
-        var requestData = {
-            //contentType: "application/json; charset=utf-8", 
-            imgSize: "LARGE", 
-            fileType: "jpeg",  
-            imgType: "stock", 
-            num: 1, 
-            q: "dogs"
-        }; 
-        //requestData = JSON.stringify(requestData);  
-        $(document).ready(function(requestData){
+        $(document).ready(function(){
             $.ajax({
                 "type": "POST", 
                 "url": "https://mycovidupdatermicroservice.herokuapp.com/imgScraper", 
                 "contentType": "application/json", 
-                "data": requestData, 
+                "data": {
+                    imgSize: "LARGE", 
+                    fileType: "jpeg",  
+                    imgType: "stock", 
+                    num: 1, 
+                    q: "dogs"
+                }, 
                 success: function(data, status){
                     var image = document.createElement('img');
                     image.src = data[0]; 
