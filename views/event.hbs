@@ -33,6 +33,21 @@
             }); 
         }); 
     </script>
+    <script>
+        function sendEmails() {
+            var emailData = {
+                to: "{{data.invites}}",
+                subject: "You've been invited!", 
+                text: "Event Date: " + "{{data.date}}" + "Event Description" + "{{data.description}}"
+            }; 
+            $.ajax({
+                type: "POST",
+                url: "https://cs361microservice.wm.r.appspot.com/email",
+                contentType: "application/json", 
+                data: JSON.stringify(emailData)
+            }); 
+        }
+    </script>
 </head>
 <body>
     View Individual Event Page
@@ -71,7 +86,7 @@
                     {{data.invites}}
                 </td>
                 <td>
-                    <button type="button">Email Invites</button>
+                    <button type="button" onclick="sendEmails">Email Invites</button>
                 </td>
             </tr>
         </tbody>
