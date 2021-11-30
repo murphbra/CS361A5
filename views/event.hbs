@@ -8,18 +8,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
+            var requestData = {
+                imgSize: "LARGE", 
+                fileType: "jpeg",  
+                imgType: "stock", 
+                num: 1, 
+                q: "dogs"
+            }; 
+
             $.ajax({
                 type: "POST", 
                 url: "https://mycovidupdatermicroservice.herokuapp.com/imgScraper", 
                 contentType: "application/json", 
                 dataType: "json",
-                body: {
-                    imgSize: "LARGE", 
-                    fileType: "jpeg",  
-                    imgType: "stock", 
-                    num: 1, 
-                    q: "dogs"
-                }, 
+                data: JSON.stringify(requestData), 
                 success: function(data){
                     var image = document.createElement('img');
                     image.src = data[0]; 
