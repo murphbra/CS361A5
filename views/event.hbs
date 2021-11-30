@@ -8,13 +8,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         //var search = {{data.title}}; 
-        var requestData = {}; 
-        requestData.contentType = "application/json; charset=utf-8"; 
-        requestData.imgSize = "LARGE"; 
-        requestData.fileType = "jpeg"; 
-        requestData.imgType = "stock"; 
-        requestData.num = 1; 
-        requestData.q = "dogs"; 
+        var requestData = {
+            contentType: "application/json; charset=utf-8", 
+            imgSize: "LARGE", 
+            fileType: "jpeg",  
+            imgType: "stock", 
+            num: 1, 
+            q: "dogs"
+        }; 
 
         $(document).ready(function(requestData){
             $.ajax({
