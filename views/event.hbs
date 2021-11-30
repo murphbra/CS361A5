@@ -38,13 +38,16 @@
             var emailData = {
                 to: "{{data.invites}}",
                 subject: "You've been invited!", 
-                text: "Event Date: " + "{{data.date}}" + "Event Description" + "{{data.description}}"
+                text: "Event Date: " + "{{data.date}}" + "\n" + "Event Description: " + "{{data.description}}"
             }; 
             $.ajax({
                 type: "POST",
                 url: "https://cs361microservice.wm.r.appspot.com/email",
                 contentType: "application/json", 
-                data: JSON.stringify(emailData)
+                data: JSON.stringify(emailData), 
+                success: function(data){
+                    document.getElementbyId("emailButton").style.color = "blue"; 
+                }
             }); 
         }
     </script>
@@ -86,7 +89,7 @@
                     {{data.invites}}
                 </td>
                 <td>
-                    <button onclick="sendEmails()">Email Invites</button>
+                    <button id="emailButton" onclick="sendEmails()">Email Invites</button>
                 </td>
             </tr>
         </tbody>
