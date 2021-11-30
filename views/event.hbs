@@ -8,14 +8,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            var input1 = ""; 
-            var input2 = input1 + JSON.stringify({{data.title}}); 
+            var input1 = "{{data.title}}"; 
+            //var input2 = input1 + JSON.stringify({{data.title}}); 
             var requestData = {
                 imgSize: "LARGE", 
                 fileType: "jpeg",  
                 imgType: "stock", 
                 num: 1, 
-                q: input2
+                q: input1
             }; 
 
             $.ajax({
