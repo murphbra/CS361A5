@@ -9,7 +9,7 @@
     <script>
         //var search = {{data.title}}; 
         var requestData = {
-            contentType: "application/json; charset=utf-8", 
+            //contentType: "application/json; charset=utf-8", 
             imgSize: "LARGE", 
             fileType: "jpeg",  
             imgType: "stock", 
@@ -17,9 +17,10 @@
             q: "dogs"
         }; 
 
-        $(document).ready(function(requestData){
+        $(document).ready(function(){
             $.ajax({
                 url: "https://mycovidupdatermicroservice.herokuapp.com/imgScraper", 
+                contentType: "application/json", 
                 type: "POST", 
                 data: requestData, 
                 success: function(data, status){
