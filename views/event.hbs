@@ -11,13 +11,13 @@
             $.ajax({
                 type: "POST", 
                 url: "https://mycovidupdatermicroservice.herokuapp.com/imgScraper", 
-                //contentType: "application/json", 
+                contentType: "application/json", 
                 data: {
-                    imgSize: "LARGE", 
-                    fileType: "jpeg",  
-                    imgType: "stock", 
-                    num: 1, 
-                    q: "dogs"
+                    "imgSize": "LARGE", 
+                    "fileType": "jpeg",  
+                    "imgType": "stock", 
+                    "num": 1, 
+                    "q": "dogs"
                 }, 
                 success: function(data, status){
                     var image = document.createElement('img');
