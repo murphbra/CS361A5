@@ -37,17 +37,14 @@
         function sendEmails() {
             var emailData = {
                 to: "{{data.invites}}",
-                subject: "You've been invited!", 
+                subject: "You've been invited: " + "{{data.title}}", 
                 text: "Event Date: " + "{{data.date}}" + "\n" + "Event Description: " + "{{data.description}}"
             }; 
             $.ajax({
                 type: "POST",
                 url: "https://cs361microservice.wm.r.appspot.com/email",
                 contentType: "application/json", 
-                data: JSON.stringify(emailData), 
-                success: function(data){
-                    document.getElementbyId("emailButton").style.color = "blue"; 
-                }
+                data: JSON.stringify(emailData)
             }); 
         }
     </script>
