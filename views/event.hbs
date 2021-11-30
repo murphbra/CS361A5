@@ -12,14 +12,15 @@
                 type: "POST", 
                 url: "https://mycovidupdatermicroservice.herokuapp.com/imgScraper", 
                 contentType: "application/json", 
+                dataType: "json", 
                 data: {
-                    "imgSize": "LARGE", 
-                    "fileType": "jpeg",  
-                    "imgType": "stock", 
-                    "num": 1, 
-                    "q": "dogs"
+                    imgSize: "LARGE", 
+                    fileType: "jpeg",  
+                    imgType: "stock", 
+                    num: 1, 
+                    q: "dogs"
                 }, 
-                success: function(data, status){
+                success: function(data){
                     var image = document.createElement('img');
                     image.src = data[0]; 
                     image.width = "300"; 
