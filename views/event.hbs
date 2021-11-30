@@ -8,22 +8,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         //var search = {{data.title}}; 
-        $(document).ready(function(){
-            $.post("https://mycovidupdatermicroservice.herokuapp.com/imgScraper",
-            {
-                imgSize: "LARGE",
-                fileType: "jpeg",
-                imgType: "stock",
-                num: 1,
-                q: "dogs"
-            },
-            function(data, status){
-                var image = document.createElement('img');
-                image.src = data[0]; 
-                //image.src = "/public/images/spiderman.jpeg"; 
-                image.width = "300"; 
-                image.alt = ""; 
-                document.getElementById("imageHolder").appendChild(image); 
+        var requestData = {}; 
+        data.contentType = "application/json; charset=utf-8"; 
+        data.imgSize = "LARGE"; 
+        data.fileType = "jpeg"; 
+        data.imgType = "stock"; 
+        data.num = 1; 
+        data.q = "dogs"; 
+
+        $(document).ready(function(requestData){
+            $.ajax({
+                url: "https://mycovidupdatermicroservice.herokuapp.com/imgScraper", 
+                type: "POST", 
+                data: requestData, 
+                success: function(data, status){
+                    var image = document.createElement('img');
+                    image.src = data[0]; 
+                    image.width = "300"; 
+                    image.alt = ""; 
+                    document.getElementById("imageHolder").appendChild(image); 
+                }; 
             }); 
         }); 
     </script>
