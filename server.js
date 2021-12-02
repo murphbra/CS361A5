@@ -129,9 +129,7 @@ router.post('/event/:event_id/rsvp/:email_name', function(req, res) {
                     var invites = event[0].invites; 
                     event[0].emails[x].response = "Accepted"; 
                     var invitesArr = event[0].emails; 
-                    
-                    rsvp(id, title, description, date, invites, invitesArr); 
-                    res.status(200).end(); 
+                    rsvp(id, title, description, date, invites, invitesArr).then(res.status(204).end()); 
                 }
             }
         }); 
@@ -149,8 +147,7 @@ router.post('/event/:event_id/rsvp/:email_name', function(req, res) {
                     event[0].emails[x].response = "Declined"; 
                     var invitesArr = event[0].emails; 
                     
-                    rsvp(id, title, description, date, invites, invitesArr); 
-                    res.status(200).end(); 
+                    rsvp(id, title, description, date, invites, invitesArr).then(res.status(200).end()); 
                 }
             }
         }); 
