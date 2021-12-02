@@ -33,12 +33,14 @@
             }); 
         }); 
     </script>
+
     <script>
+        /*
         function sendEmails() {
             var emailData = {
                 to: "{{data.invites}}",
                 subject: "You've been invited: " + "{{data.title}}", 
-                text: "Event Date: " + "{{data.date}}" + "\n" + "Event Description: " + "{{data.description}}"
+                text: "Event Date: " + "{{data.date}}" + "\n" + "Event Description: " + "{{data.description}}" + "\n" + "Follow Link to RSVP: " + "https://cs361a5.wl.r.appspot.com/event/" + "{{data.id}}"+ "/rsvp/" + ""
             }; 
             $.ajax({
                 type: "POST",
@@ -47,7 +49,28 @@
                 data: JSON.stringify(emailData)
             }); 
         }
+        */
     </script>
+
+    <script>
+        function sendEmails() {
+            var emailArr = {{data.emails}}; 
+            for(var x=0; x<emailArr.length; x++){
+                var emailData = {
+                    to: emailArr[x].name,
+                    subject: "You've been invited: " + "{{data.title}}", 
+                    text: "Event Date: " + "{{data.date}}" + "\n" + "Event Description: " + "{{data.description}}" + "\n" + "Follow Link to RSVP: " + "https://cs361a5.wl.r.appspot.com/event/" + "{{data.id}}"+ "/rsvp/" + emailArr[x].name
+                }; 
+                $.ajax({
+                    type: "POST",
+                    url: "https://cs361microservice.wm.r.appspot.com/email",
+                    contentType: "application/json", 
+                    data: JSON.stringify(emailData)
+                }); 
+            } 
+        }
+    </script>
+
 </head>
 <body>
     View Individual Event Page

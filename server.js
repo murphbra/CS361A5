@@ -101,6 +101,15 @@ router.get('/event/:event_id', function(req, res){
     }); 
 }); 
 
+router.get('/events/:event_id/rsvp/:email_name', function(req, res) {
+    var context = {}; 
+    get_event(req.params.event_id).then((event)=> {
+        context.event = event[0]; 
+        context.email = req.params.email_name; 
+        res.render("rsvp", context); 
+    }); 
+}); 
+
 router.post('/', function(req, res){
     if(req.body.title === undefined)
     {
