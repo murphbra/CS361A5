@@ -122,7 +122,7 @@ router.post('/event/:event_id/rsvp/:email_name', function(req, res) {
         get_event(req.params.event_id).then((event)=> {
             for(var x= 0; x< event[0].emails.length; x++){
                 if(event[0].emails[x].name == req.params.email_name){
-                    var id = event[0].id; 
+                    var id = req.params.event_id; 
                     var title = event[0].title; 
                     var description = event[0].description;
                     var date = event[0].date; 
@@ -141,7 +141,7 @@ router.post('/event/:event_id/rsvp/:email_name', function(req, res) {
         get_event(req.params.event_id).then((event)=> {
             for(var x= 0; x< event[0].emails.length; x++){
                 if(event[0].emails[x].name == req.params.email_name){
-                    var id = event[0].id; 
+                    var id = req.params.event_id; 
                     var title = event[0].title; 
                     var description = event[0].description;
                     var date = event[0].date; 
