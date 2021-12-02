@@ -131,6 +131,7 @@ router.post('/event/:event_id/rsvp/:email_name', function(req, res) {
                     var invitesArr = event[0].emails; 
                     
                     rsvp(id, title, description, date, invites, invitesArr); 
+                    res.status(200).end(); 
                 }
             }
         }); 
@@ -149,6 +150,7 @@ router.post('/event/:event_id/rsvp/:email_name', function(req, res) {
                     var invitesArr = event[0].emails; 
                     
                     rsvp(id, title, description, date, invites, invitesArr); 
+                    res.status(200).end(); 
                 }
             }
         }); 
