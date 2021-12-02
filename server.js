@@ -38,7 +38,8 @@ app.set('view engine', '.hbs');
 
 function post_event(title, description, date, invites) {
     var key = datastore.key(EVENT);
-    const new_event = {"title": title, "description": description, "date": date, "invites": invites}; 
+    var invitesArr = invites.split(','); 
+    const new_event = {"title": title, "description": description, "date": date, "invites": invites, "emails": invitesArr}; 
     return datastore.save({"key": key, "data": new_event}); 
 }
 
