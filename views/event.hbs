@@ -35,12 +35,13 @@
     </script>
     <script>
         function sendEmails() {
-            var emailArr = {{data.emails}}; 
+            var emailArr = "{{data.invites}}"; 
+            var emailArr = emailArr.split(','); 
             for(var x=0; x<emailArr.length; x++){
                 var emailData = {
-                    to: emailArr[x].name,
+                    to: emailArr[x],
                     subject: "You've been invited: " + "{{data.title}}", 
-                    text: "Event Date: " + "{{data.date}}" + "\n" + "Event Description: " + "{{data.description}}" + "\n" + "Follow Link to RSVP: " + "https://cs361a5.wl.r.appspot.com/event/" + "{{data.id}}"+ "/rsvp/" + emailArr[x].name
+                    text: "Event Date: " + "{{data.date}}" + "\n" + "Event Description: " + "{{data.description}}" + "\n" + "Follow Link to RSVP: " + "https://cs361a5.wl.r.appspot.com/event/" + "{{data.id}}"+ "/rsvp/" + emailArr[x]
                 }; 
                 $.ajax({
                     type: "POST",
