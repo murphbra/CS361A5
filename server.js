@@ -50,6 +50,12 @@ function post_event(title, description, date, invites) {
     return datastore.save({"key": key, "data": new_event}); 
 }
 
+function rsvp(id, title, description, date, invites, invitesArr) {
+    const key = datastore.key([EVENT, parseInt(id, 10)]);
+    const event = {"title": title, "description": description, "date": date, "invites": invites, "emails": invitesArr};
+    return datastore.save({ "key": key, "data": event });
+}
+
 function get_events(context) {
     const q = datastore.createQuery(EVENT);
     return datastore.runQuery(q).then((entities) => {
@@ -111,19 +117,41 @@ router.get('/event/:event_id/rsvp/:email_name', function(req, res) {
 }); 
 
 router.post('/event/:event_id/rsvp/:email_name', function(req, res) {
-    //get_event(req.params.event_id).then((event)=> {  
-    //}); 
-    if(req.body.respond === undefined)
+    if (req.body.respond === 'accept')
     {
-        res.redirect('/error'); 
-    }
-    else if (req.body.respond === 'accept')
-    {
-        res.redirect('/accept'); 
+        get_event(req.params.event_id).then((event)=> {
+            for(var x= 0; x< event[0].emails.length; x++){
+                if(event[0].emails[x].name == req.params.email_name){
+                    var id = event[0].id; 
+                    var title = event[0].title; 
+                    var description = event[0].description;
+                    var date = event[0].date; 
+                    var invites = event[0].invites; 
+                    event[0].emails[x].response = "Accepted"; 
+                    var invitesArr = event[0].emails; 
+                    
+                    rsvp(id, title, description, date, invites, invitesArr); 
+                }
+            }
+        }); 
     }
     else if (req.body.respond === 'decline')
     {
-        res.redirect('/decline'); 
+        get_event(req.params.event_id).then((event)=> {
+            for(var x= 0; x< event[0].emails.length; x++){
+                if(event[0].emails[x].name == req.params.email_name){
+                    var id = event[0].id; 
+                    var title = event[0].title; 
+                    var description = event[0].description;
+                    var date = event[0].date; 
+                    var invites = event[0].invites; 
+                    event[0].emails[x].response = "Declined"; 
+                    var invitesArr = event[0].emails; 
+                    
+                    rsvp(id, title, description, date, invites, invitesArr); 
+                }
+            }
+        }); 
     }
 }); 
 
