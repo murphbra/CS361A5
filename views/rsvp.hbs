@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div>Your email is: {{email}}</div>
     <table style="border:solid">
         <caption>You have been invited!</caption>
         <thead>
@@ -28,5 +27,19 @@
             </tr>
         </tbody>
     </table>
+
+    <form id="rsvp" action="/event/:event_id/rsvp/:email_name" method="post">
+        <fieldset>
+            <legend>Respond to invite:</legend>
+                <input type="radio" id="accept" name="respond" value="accept">
+                <label for="accept">Accept</label><br>
+
+                <input type="radio" id="decline" name="respond" value="decline">
+                <label for="decline">Decline</label><br>
+
+            <input type="submit" value="Submit" />
+        </fieldset>
+    </form>
+
 </body>
 </html>

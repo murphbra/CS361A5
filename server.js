@@ -110,6 +110,23 @@ router.get('/event/:event_id/rsvp/:email_name', function(req, res) {
     }); 
 }); 
 
+router.post('/event/:event_id/rsvp/:email_name', function(req, res) {
+    //get_event(req.params.event_id).then((event)=> {  
+    //}); 
+    if(req.body.respond === undefined)
+    {
+        res.redirect('/error'); 
+    }
+    else if (req.body.respond === 'accept')
+    {
+        res.redirect('/accept'); 
+    }
+    else if (req.body.respond === 'decline')
+    {
+        res.redirect('/decline'); 
+    }
+}); 
+
 router.post('/', function(req, res){
     if(req.body.title === undefined)
     {
