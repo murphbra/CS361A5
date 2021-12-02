@@ -91,14 +91,17 @@
             </tr>
         </tbody>
     </table>
+
     <table>
         <thead>
-            <th>Emails</th>
+            <th>Email Address</th>
+            <th>RSVP</th>
         </thead>
         <tbody>
             {{#each data.emails}}
             <tr>
-                <td>{{this}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.response}}</td>
             </tr>
             {{/each}}
         </tbody>
