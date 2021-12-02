@@ -86,12 +86,21 @@
                     {{data.invites}}
                 </td>
                 <td>
-                    {{data.emails}}
-                </td>
-                <td>
                     <button id="emailButton" onclick="sendEmails()">Email Invites</button>
                 </td>
             </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <th>Emails</th>
+        </thead>
+        <tbody>
+            {{#each data.emails}}
+            <tr>
+                <td>{{this}}</td>
+            </tr>
+            {{/each}}
         </tbody>
     </table>
 </body>
