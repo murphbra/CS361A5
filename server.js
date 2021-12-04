@@ -32,10 +32,6 @@ app.set('view engine', '.hbs');
 
 /* ------------- Begin Lodging Model Functions ------------- */
 
-/**
- * 
- */
-
 function post_event(title, description, date, invites) {
     var key = datastore.key(EVENT);
     var invitesArr = invites.split(','); 
@@ -173,8 +169,6 @@ router.delete('/events/:event_id', function(req, res){
 
 app.use('/', router);
 
-// Listen to the App Engine-specified port, or 8080 otherwise
-//const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`);
 });
